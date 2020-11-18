@@ -1,12 +1,14 @@
+
+
 $(document).ready(function(){
 
-    function Tester(){
+    function Tester(city=""){
         var e=$("#country").val();
         $.ajax("world.php",{
             method: 'GET',
             data:{
                 country:e,
-                
+                context:city
             }
         }).done(function(i){
             let c=i;
@@ -20,8 +22,11 @@ $(document).ready(function(){
         Tester();
     });
 
-   
+    $("#lookup-cities").click(function(){
+        Tester("cities");
+    });
 
     
 });
+
   
